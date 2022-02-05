@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head.ejs') %>
+    <style>
+        body {
+            background-color: #080f28;
+            margin-top: 56px;
+        }
+
+        /* .navbar {
+            margin-bottom: 56px;
+        } */
+    </style>
+</head>
+
+<body class="container">
+
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <main>
+        <h2 class="text-white">Peliculas mas vistas.</h2>
+        <p class="lead">Películas mas vistas son las que mas reproducciones han tenido a lo largo de su estreno aquí en
+            el sitio.</p>
+
+
+        <div class="grid">
+            <div class="row">
+                <% results.forEach(function(movie, index) { %>
+                <div class="col-sm-3 mb-4">
+                    <div class="card mb-3 position-relative">
+                        <img src="<%= `https://image.tmdb.org/t/p/original/${movie.backdrop_path}` %>"
+                            class="card-img-top" alt="...">
+                        <span class="badge rounded-pill bg-primary position-absolute bottom-0 end-0 translate-middle">
+                            <%= movie.release_date %>
+                        </span>
+                    </div>
+                    <h5 class="text-center text-white fw-light fs-6"><%= movie.title %></h5>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+
+    </main>
+
+
+    <!-- <footer>
+        <%- include('../partials/footer'); %>
+    </footer> -->
+
+    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
